@@ -4,6 +4,8 @@ Download youtube videos, either video or audio format
 
 ## Demo
 
+you need to have the ffmpeg.exe to the same folder with this
+
 `Youtube URL: https://www.youtube.com/watch?v=dQw4w9WgXcQ`
 
 you can input many url you want
