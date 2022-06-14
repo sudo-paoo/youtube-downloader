@@ -2,7 +2,7 @@ import youtube_dl
 import re
 import os
 links = []
-
+# url validator
 def youtube_url_validation(url):
     youtube_regex = (
         r'(https?://)?(www\.)?'
@@ -14,7 +14,7 @@ def youtube_url_validation(url):
         return youtube_regex_match
 
     return youtube_regex_match
-
+#downloads in mp4 
 def download_mp4(url):
     for yt_url in url:
         video_url = yt_url
@@ -24,14 +24,14 @@ def download_mp4(url):
         file = f"{video_info['title']}"
         options={
             'format':'bestvideo+bestaudio',
-            'outtmpl':f"./downloads/mp4/{file}",
+            'outtmpl':f"./downloads/mp4/{file}", # you can change the file location
             'ffmpeg-location': './'
         }
         with youtube_dl.YoutubeDL(options) as ydl:
             ydl.download([video_info['webpage_url']])
         print(f"Download Success: {file}")
         os.system("pause")
-
+#downloads in mp3 format
 def download_mp3(url):
     for yt_url in url:
         video_url = yt_url
@@ -40,7 +40,7 @@ def download_mp3(url):
         options={
             'format':'bestaudio/best',
             'keepvideo':False,
-            'outtmpl':f"./downloads/mp3/{filename}"
+            'outtmpl':f"./downloads/mp3/{filename}" # you can change the file location
         }
         with youtube_dl.YoutubeDL(options) as ydl:
             ydl.download([video_info['webpage_url']])
